@@ -11,37 +11,37 @@ containers:
     config:
       instances: 1
       runtime:
-        - command:
-          - args: "--auth"
+        command:
+          args: "--auth"
       network:
         public: true
         hostname: "db"
         ports: ["27017"]
         dns:
-          - nameservers: ["8.8.4.4", "8.8.8.8"]
+          nameservers: ["8.8.4.4", "8.8.8.8"]
       tags:
-        - require: ["db"]
-        - pool: ["sjc", "nyc"]
+        require: ["db"]
+        pool: ["sjc", "nyc"]
       volumes:
         - type: "local"
           read_only: false
           destination: "/data/db"
           remote_access:
-            - allow: false
+            allow: false
           local: 
-            - size: "2G"
+            size: "2G"
       resources:
-        - cpu:
-          - limit: "0.5"
-          - reserve: "0.1"
-        - ra:
-          - limit: "2G"
-          - reserve: "250M"
+        cpu:
+          limit: "0.5"
+          reserve: "0.1"
+        ram:
+          limit: "2G"
+          reserve: "250M"
       options:
-        - monitor:
-          - auto_restart: true
-          - max_restarts: 3
-          - restart_delay: "10s"
-          - notify:
-            - emails: ["jwarner@cycle.io"]
+        monitor:
+          auto_restart: true
+          max_restarts: 3
+          restart_delay: "10s"
+          notify:
+            emails: ["jwarner@cycle.io"]
       
