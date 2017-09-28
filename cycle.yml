@@ -5,8 +5,9 @@ containers:
     name: "Database"
     image:
       name: "MongoDB"
-      source: "docker_hub"
-      target: "mongo:latest"
+      source: 
+        docker_hub:
+          target: "mongo:latest"
       preload: false
     config:
       instances: 1
