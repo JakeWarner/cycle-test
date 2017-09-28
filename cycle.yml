@@ -23,9 +23,9 @@ containers:
         require: ["db"]
         pool: ["sjc", "nyc"]
       volumes:
-        - type: "local"
+        - "/data/db": 
+          type: "local"
           read_only: false
-          destination: "/data/db"
           remote_access:
             allow: false
           local: 
