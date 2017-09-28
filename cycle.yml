@@ -33,8 +33,8 @@ containers:
               size: "2G"
       resources:
         cpu:
-          limit: "0.5"
-          reserve: "0.1"
+          limit: "0.5cores"
+          reserve: "0.1cores"
         ram:
           limit: "2G"
           reserve: "250M"
