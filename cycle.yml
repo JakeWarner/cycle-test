@@ -1,0 +1,47 @@
+version: "1.0"
+description: "A test spec for Cycle v2"
+containers:
+  db:
+    name: "Database"
+    image:
+      name: "MongoDB"
+      source: "docker_hub"
+      target: "mongo:latest"
+      preload: false
+    config:
+      instances: 1
+      runtime:
+        - command:
+          - args: "--auth"
+      network:
+        public: true
+        hostname: "db"
+        ports: ["27017"]
+        dns:
+          - nameservers: ["8.8.4.4", "8.8.8.8"]
+      tags:
+        - require: ["db"]
+        - pool: ["sjc", "nyc"]
+      volumes:
+        - type: "local"
+          read_only: false
+          destination: "/data/db"
+          remote_access:
+            - allow: false
+          local: 
+            - size: "2G"
+      resources:
+        - cpu:
+          - limit: "0.5"
+          - reserve: "0.1"
+        - ra:
+          - limit: "2G"
+          - reserve: "250M"
+      options:
+        - monitor:
+          - auto_restart: true
+          - max_restarts: 3
+          - restart_delay: "10s"
+          - notify:
+            - emails: ["jwarner@cycle.io"]
+      
