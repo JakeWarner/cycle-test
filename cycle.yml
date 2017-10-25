@@ -30,7 +30,7 @@ containers:
             remote_access:
               allow: false
             local: 
-              size: "2G"
+              max_size: "2G"
       resources:
         cpu:
           limit: "0.5cores"
