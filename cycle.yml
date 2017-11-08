@@ -13,7 +13,7 @@ containers:
       instances: 1
       runtime:
         command:
-          path: "/docker-entrypoint.sh"
+          path: "/entrypoint.sh"
           args: "mongod --auth --bind_ip_all"
         privileged: false
         namespaces: ["net", "ipc", "uts", "user", "mount", "pid"]
