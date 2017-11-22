@@ -16,7 +16,7 @@ containers:
           path: "/entrypoint.sh"
           args: "mongod --auth --bind_ip_all"
         privileged: false
-        namespaces: ["net", "ipc", "uts", "user", "mount", "pid"]
+        namespaces: ["network", "ipc", "uts", "user", "mount", "pid"]
       network:
         public: true
         hostname: "db"
