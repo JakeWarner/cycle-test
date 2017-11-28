@@ -7,7 +7,7 @@ containers:
       name: "MongoDB"
       source: 
         docker_hub:
-          target: "mongo:latest"
+          target: "mongo:3.6"
       preload: false
     config:
       instances: 1
