@@ -18,7 +18,7 @@ containers:
         privileged: false
         namespaces: ["network", "ipc", "uts", "mount", "pid"]
       network:
-        public: "egress_only"
+        public: "enable"
         hostname: "db"
         ports: ["27017"]
         dns:
