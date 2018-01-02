@@ -9,8 +9,15 @@ containers:
         docker_hub:
           target: "mongo:3.6"
       preload: false
+   volumes:
+      - type: "local"
+        destination: "/data/db"
+        read_only: false
+        remote_access:
+          allow: false
+        local: 
+          max_size: "2G"
     config:
-      instances: 1
       runtime:
         command:
           path: "/entrypoint.sh"
@@ -23,17 +30,14 @@ containers:
         ports: ["27017"]
         dns:
           nameservers: ["8.8.4.4", "8.8.8.8"]
-      tags:
-        require: ["db"]
-        pool: ["sjc", "nyc"]
-      volumes:
-          - type: "local"
-            destination: "/data/db"
-            read_only: false
-            remote_access:
-              allow: false
-            local: 
-              max_size: "2G"
+      scaling:
+        instances:
+          max: 1
+          min: 1
+      deployment:
+        tags:
+          require: ["db"]
+          pool: ["sjc", "nyc"]
       resources:
         cpu:
           limit: "0.5cores"
