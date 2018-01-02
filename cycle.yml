@@ -30,11 +30,8 @@ containers:
         ports: ["27017"]
         dns:
           nameservers: ["8.8.4.4", "8.8.8.8"]
-      scaling:
-        instances:
-          max: 1
-          min: 1
       deployment:
+        instances: 1
         tags:
           require: ["db"]
           pool: ["sjc", "nyc"]
