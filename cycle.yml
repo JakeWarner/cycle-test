@@ -9,7 +9,7 @@ containers:
         docker_hub:
           target: "mongo:3.6"
       preload: false
-   volumes:
+    volumes:
       - type: "local"
         destination: "/data/db"
         read_only: false
