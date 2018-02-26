@@ -10,8 +10,7 @@ containers:
           target: "mongo:3.6"
       preload: false
     volumes:
-      - type: "local"
-        destination: "/data/db"
+      - destination: "/data/db"
         read_only: false
         remote_access:
           allow: false
