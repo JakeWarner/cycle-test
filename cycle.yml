@@ -22,7 +22,8 @@ containers:
           path: "/entrypoint.sh"
           args: "mongod --auth"
         privileged: false
-        namespaces: ["network", "ipc", "uts", "mount", "pid"]
+        namespaces: ["network", "ipc", "uts", "mount", "pid"],
+        capabilities: []
       network:
         public: "enable"
         hostname: "db"
