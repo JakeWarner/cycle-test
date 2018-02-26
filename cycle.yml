@@ -20,7 +20,7 @@ containers:
       runtime:
         command:
           path: "/entrypoint.sh"
-          args: "mongod --auth --bind_ip_all"
+          args: "mongod --auth"
         privileged: false
         namespaces: ["network", "ipc", "uts", "mount", "pid"]
       network:
