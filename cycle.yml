@@ -48,7 +48,7 @@ containers:
         monitor:
           auto_restart: true
           max_restarts: 3
-          restart_delay: 10
+          restart_delay_secs: 10
           notify:
             emails: ["jwarner@cycle.io"]
       
