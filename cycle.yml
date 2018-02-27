@@ -39,6 +39,7 @@ containers:
         cpu:
           limit: "0.5cores"
           reserve: "0.1cores"
+          cpus: "0,1"
         ram:
           limit: "2G"
           reserve: "250M"
