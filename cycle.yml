@@ -47,7 +47,7 @@ containers:
         capabilities: []
         command: 
           args: "mongod --auth"
-          path: /entrypoint.sh
+          path: "docker-entrypoint.sh"
         namespaces: 
           - network
           - ipc
