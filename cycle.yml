@@ -12,10 +12,6 @@ containers:
           require: 
             - db
       network: 
-        dns: 
-          nameservers: 
-            - "8.8.4.4"
-            - "8.8.8.8"
         hostname: db
         ports: 
           - "27017"
